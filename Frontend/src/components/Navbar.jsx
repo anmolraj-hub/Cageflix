@@ -1,10 +1,13 @@
 import React from "react";
 import {Search} from "lucide-react";
+import Logo from '../assets/Logo.jpeg';
 
 const Navbar = () =>{
     return (
         <nav className="bg-black text-gray-200 flex justify-between items-center p-4 h-20 text-sm md:text-[15px] font-medium text-nowrap">
-            <label>Logo</label>
+            
+                <img src={Logo} alt="Logo" className="w-32 h-20 cursor-pointer brightness-125"/>
+                <div className="flex items-center space-x-4 xL:hidden"></div>
 
             <ul className="hidden xl:flex space-x-4">
                 <li className="cursor-pointer hover:text-[#e50914]">Home</li>
