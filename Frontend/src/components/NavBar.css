@@ -32,3 +32,18 @@
 .navbar-links a:hover {
   color: #e50914;
 }
+
+.signin-button {
+  background-color: #e50914;
+  color: #fff;
+  padding: 8px 16px;
+  margin-left: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+  background-color: #f6121d;
+}

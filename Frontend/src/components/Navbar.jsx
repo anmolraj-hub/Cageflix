@@ -35,6 +35,8 @@ export default function NavBar() {
         />
         <button type="submit">Search</button>
       </form>
+      <Link to="/signin" className="signin-button">Sign In</Link>
+      
       {results.length > 0 && (
         <div className="search-results">
           {results.map((movie) => (
