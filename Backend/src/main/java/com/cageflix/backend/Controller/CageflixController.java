@@ -15,19 +15,29 @@ import com.cageflix.backend.dto.Moviedto;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/movies")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @CrossOrigin
 public class CageflixController {
 
     private final CageflixService cageflixService;
 
-    @GetMapping
-    public List<Moviedto> getAllCageMovies() {
-        return cageflixService.getAllCageMovies();
-       
 
-    }
+    @GetMapping("/movies")
+public List<Moviedto> getAllCageMovies(@RequestParam(required = false) String genre) {
+    return cageflixService.getAllCageMovies(genre);
+}
+
+@GetMapping("/shows")
+public List<Moviedto> getAllCageShows(@RequestParam(required = false) String genre) {
+    return cageflixService.getAllCageShows(genre);
+}
+
+@GetMapping("/home")
+public List<Moviedto> getAllCageContent(@RequestParam(required = false) String genre) {
+    return cageflixService.getAllCageContent(genre);
+}
+
     
 
     @GetMapping("/{id}")

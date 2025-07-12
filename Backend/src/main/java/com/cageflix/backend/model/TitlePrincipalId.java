@@ -33,7 +33,7 @@ public class TitlePrincipalId implements Serializable {
         this.nconst = nconst;
     }
 
-    // IMPORTANT: must implement equals() and hashCode()
+    
 
     @Override
     public boolean equals(Object o) {

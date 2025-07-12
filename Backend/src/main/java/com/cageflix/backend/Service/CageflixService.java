@@ -23,16 +23,21 @@ public class CageflixService {
     private final MovieRepository movieRepo;
     private final Moviemapper movieMapper;
 
-    public List<Moviedto> getAllCageMovies() {
-        Person cage = personRepo.findByPrimaryNameIgnoreCase("Nicolas Cage");
-        //Person cage = personRepo.findBynconstIgnoreCase("nm0000115");
-        if (cage == null) {
-            throw new RuntimeException("Nicolas Cage not found!");
-        }
-        List<TitlePrincipal> cageTitles = principalRepo.findByNconst(cage.getnconst());
-        List<String> tconsts = cageTitles.stream().map(TitlePrincipal::getTconst).toList();
-        return movieRepo.findAllById(tconsts).stream().map(movieMapper::toDto).toList();
-    }
+    
+
+    public List<Moviedto> getAllCageMovies(String genre) {
+    return getAllCageMoviesByTypeAndGenre("movies", genre);
+}
+
+public List<Moviedto> getAllCageShows(String genre) {
+    return getAllCageMoviesByTypeAndGenre("shows", genre);
+}
+
+public List<Moviedto> getAllCageContent(String genre) {
+    return getAllCageMoviesByTypeAndGenre("all", genre);
+}
+
+
 
     public Moviedto getMovieById(String id) {
         return movieRepo.findById(id).map(movieMapper::toDto)
@@ -40,7 +45,7 @@ public class CageflixService {
     }
 
     public List<Moviedto> searchMovies(String genre, String actor, String keyword) {
-        List<Moviedto> cageMovies = getAllCageMovies();
+        List<Moviedto> cageMovies = getAllCageMovies(genre);
 
         return cageMovies.stream().filter(movie -> {
             boolean matches = true;
@@ -68,4 +73,34 @@ public class CageflixService {
         }
         return false;
     }
+
+    
+
+    private List<Moviedto> getAllCageMoviesByTypeAndGenre(String type, String genre) {
+    Person cage = personRepo.findByPrimaryNameIgnoreCase("Nicolas Cage");
+    if (cage == null) {
+        throw new RuntimeException("Nicolas Cage not found!");
+    }
+    List<TitlePrincipal> cageTitles = principalRepo.findByNconst(cage.getnconst());
+    List<String> tconsts = cageTitles.stream().map(TitlePrincipal::getTconst).toList();
+
+    return movieRepo.findAllById(tconsts).stream()
+        .filter(movie -> {
+            boolean matchesType = true;
+            if ("movies".equalsIgnoreCase(type)) {
+                matchesType = "movie".equalsIgnoreCase(movie.getTitleType());
+            } else if ("shows".equalsIgnoreCase(type)) {
+                matchesType = !"movie".equalsIgnoreCase(movie.getTitleType());
+            }
+            boolean matchesGenre = true;
+            if (genre != null && !genre.isEmpty()) {
+                matchesGenre = movie.getGenres() != null && movie.getGenres().toLowerCase().contains(genre.toLowerCase());
+            }
+            return matchesType && matchesGenre;
+        })
+        .map(movieMapper::toDto)
+        .toList();
+}
+
+
 }

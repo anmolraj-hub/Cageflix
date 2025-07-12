@@ -6,13 +6,14 @@ export default function Home() {
   return (
     <div className="home">
       <Banner />
-      <Row genre="Action" />
-      <Row genre="Comedy" />
-      <Row genre="Drama" />
-      <Row genre="Crime" />
-      <Row genre="Thriller" />
-      <Row genre="Sci-Fi" />
-      <Row genre="Adventure" />
+      <Row genre="Action" type="home" />
+<Row genre="Comedy" type="home" />
+<Row genre="Drama" type="home" />
+<Row genre="Crime" type="home" />
+<Row genre="Thriller" type="home" />
+<Row genre="Sci-Fi" type="home" />
+<Row genre="Adventure" type="home" />
+
     </div>
   );
 }

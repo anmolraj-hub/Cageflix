@@ -21,7 +21,7 @@ public class TitlePrincipal {
 
     private String characters;
 
-    // ✅ Add getters and setters for tconst
+    
     public String getTconst() {
         return tconst;
     }
@@ -30,7 +30,7 @@ public class TitlePrincipal {
         this.tconst = tconst;
     }
 
-    // ✅ Add getters and setters for nconst
+    
     public String getNconst() {
         return nconst;
     }
@@ -39,7 +39,7 @@ public class TitlePrincipal {
         this.nconst = nconst;
     }
 
-    // ✅ Existing ones
+   
     public String getCategory() {
         return category;
     }
