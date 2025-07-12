@@ -1,27 +1,34 @@
-import React from 'react'
-import Hero from '../components/Hero'
-import CardList from '../components/CardList'
-import Footer from '../components/Footer'
+import React from "react";
+import sampleData from "../data/sampledata.json";
+import SliderRow from "../components/SliderRow";
 
-const Homepage = () => {
+const HomePage = () => {
+  const { movies, shows } = sampleData;
+
+  // Helper: get unique genres from movies & shows
+  const allGenres = Array.from(
+    new Set(
+      [...movies, ...shows]
+        .flatMap((item) => item.genres.split(","))
+        .map((g) => g.trim())
+    )
+  );
+
   return (
-    <div className='p-5'>
-      <Hero />
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <CardList/>
-      <Footer />
-    </div>
-  )
-}
+    <div style={{ padding: "0 20px" }}>
+      {allGenres.map((genre) => {
+        // Filter movies and shows for this genre
+        const genreItems = [
+          ...movies.filter((m) => m.genres.split(",").map(g => g.trim()).includes(genre)),
+          ...shows.filter((s) => s.genres.split(",").map(g => g.trim()).includes(genre)),
+        ];
 
-export default Homepage
+        return (
+          <SliderRow key={genre} title={`${genre} Titles`} items={genreItems} />
+        );
+      })}
+    </div>
+  );
+};
+
+export default HomePage;

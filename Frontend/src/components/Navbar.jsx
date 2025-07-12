@@ -1,32 +1,49 @@
-import React from "react";
-import {Search} from "lucide-react";
-import Logo from '../assets/Logo.jpeg';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from '../api/axios';
+import './NavBar.css';
 
-const Navbar = () =>{
-    return (
-        <nav className="bg-black text-gray-200 flex justify-between items-center p-4 h-20 text-sm md:text-[15px] font-medium text-nowrap">
-            
-                <img src={Logo} alt="Logo" className="w-32 h-20 cursor-pointer brightness-125"/>
-                <div className="flex items-center space-x-4 xL:hidden"></div>
+export default function NavBar() {
+  const [keyword, setKeyword] = useState('');
+  const [results, setResults] = useState([]);
 
-            <ul className="hidden xl:flex space-x-4">
-                <li className="cursor-pointer hover:text-[#e50914]">Home</li>
-                <li className="cursor-pointer hover:text-[#e50914]">Shows</li>
-                <li className="cursor-pointer hover:text-[#e50914]">Movies</li>
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!keyword) return;
+    try {
+      const res = await axios.get(`/search?keyword=${keyword}`);
+      setResults(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-            </ul>
-
-            <div className="flex item-center space x-4 relative">
-                <div className="relative hidden md:inline-flex"></div>
-                <input type = "text" className="bg-[#333333] px-4 py-2 min-w-72 pr-10 outline-none " placeholder="Search..."/>
-                <Search className="absolute top-2 right-4 w-5 h-5"/>
-
+  return (
+    <nav className="navbar">
+      <h2 className="navbar-logo">Cageflix</h2>
+      <ul className="navbar-links">
+        <li ><Link to="/">Home</Link></li>
+        <li><Link to="/movies">Movies</Link></li>
+        <li><Link to="/shows">Shows</Link></li>
+      </ul>
+      <form className="search-form" onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search Cageflix..."
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {results.length > 0 && (
+        <div className="search-results">
+          {results.map((movie) => (
+            <div key={movie.id} className="search-item">
+              <strong>{movie.title}</strong> ({movie.year}) - {movie.genres}
             </div>
-            <div>
-                <button className="bg-[#e50914] px-5 py-2 text-white cursor-pointer">Get movie pics</button>
-                <button className="border border-[#333333] py-2 px-4 cursor-pointer">Sign in</button>
-            </div>
-        </nav>
-    )
+          ))}
+        </div>
+      )}
+    </nav>
+  );
 }
-export default Navbar

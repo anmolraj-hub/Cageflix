@@ -1,17 +1,24 @@
-import React from "react";
-import Navbar from './components/Navbar'
-import Homepage from './Pages/Homepage'
-import Hero from "./components/Hero";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Home from './Pages/Home';
+import Movies from './Pages/Movies';
+import Shows from './Pages/Shows';
+import Footer from './components/Footer';
 
-const App = ()=>{
-    return (
-        <div>
-            <Navbar />
-            <Homepage />
-            
+export default function App() {
+  return (
+    <div className='App'>
+      <BrowserRouter>
 
-
-        </div>
-    )
+     <NavBar/>
+           <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/shows" element={<Shows />} />
+      </Routes>
+      </BrowserRouter>
+        <Footer />
+      </div>
+  );
 }
-export default App

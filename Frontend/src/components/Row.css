@@ -1,0 +1,43 @@
+/* Row.css */
+
+.row {
+  margin: 40px 0;
+  color: #fff;
+}
+
+.row h2 {
+  margin-left: 32px;
+  margin-bottom: 12px;
+}
+
+.row-posters {
+  display: flex;
+  overflow-x: scroll;
+  padding-left: 32px;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-card {
+  margin-right: 16px;
+  width: 150px;
+  flex: 0 0 auto;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.movie-card img:hover {
+  transform: scale(1.05);
+}
+
+.movie-card p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}

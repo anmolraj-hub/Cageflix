@@ -1,0 +1,59 @@
+.footer {
+  background-color: #141414; /* Netflix dark */
+  color: #737373; /* Netflix gray */
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-top {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.footer-top p {
+  margin: 4px 0;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .footer-links {
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+  }
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  color: #737373;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer p {
+  color: #737373;
+}
+
+.footer p:hover {
+  color: #fff;
+  cursor: pointer;
+}
