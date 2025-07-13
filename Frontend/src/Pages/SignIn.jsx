@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
-
+import '../components/SignIn.css';
 
 export default function SignIn({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -13,11 +13,11 @@ export default function SignIn({ onLogin }) {
     try {
       const response = await axios.post('/signin', {
         username,
-        password
+        password,
       });
       if (response.status === 200) {
-        onLogin(username); 
-        navigate('/'); 
+        onLogin(username);
+        navigate('/');
       } else {
         alert('Invalid credentials');
       }
@@ -28,24 +28,34 @@ export default function SignIn({ onLogin }) {
   };
 
   return (
-    <div className="signin-page">
-      <h2>Sign In</h2>
+    <div className="signin-container">
+      <h2 className="signin-title">Sign In</h2>
       <form onSubmit={handleSubmit} className="signin-form">
-        <input 
+        <input
           type="text"
-          placeholder="Username"
+          placeholder="Email or phone number"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          className="signin-input"
         />
-        <input 
+        <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="signin-input"
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="signin-form-button">
+          Sign In
+        </button>
+        <div className="signin-options">
+          <label>
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" className="help-link">Need help?</a>
+        </div>
       </form>
     </div>
   );

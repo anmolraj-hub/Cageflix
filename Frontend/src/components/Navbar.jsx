@@ -36,7 +36,7 @@ export default function NavBar({user , onLogout}) {
         <button type="submit">Search</button>
       </form>
       {user ? (
-  <div className="navbar-user">
+  <div className="user-info">
     <span className="username">Welcome, {user}!</span>
     <button className="logout-button" onClick={onLogout}>Logout</button>
   </div>
