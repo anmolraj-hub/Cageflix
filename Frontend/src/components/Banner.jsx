@@ -6,7 +6,7 @@ export default function Banner() {
   return (
     <header className="banner">
       <div className="banner-contents">
-        <h1 className="banner-title">Featured Nicolas Cage Movie</h1>
+        <h1 className="banner-title"></h1>
         <div className="banner-buttons">
            <button className='banner-button'>
                            <Play className='mr-2 w-4 h-5 md:2-5 md:h-5'/>Watch Now</button>

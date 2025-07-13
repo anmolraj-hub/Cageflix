@@ -2,42 +2,82 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
-  background-color: #141414; /* Netflix dark */
+  justify-content: space-between;
+  background-color: #141414;
+  padding: 0 40px;
+  height: 70px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .navbar-logo {
-  color: #e50914; /* Netflix red */
-  font-size: 24px;
+  color: #e50914;
+  font-size: 28px;
   font-weight: bold;
   text-decoration: none;
+  margin-right: 40px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 24px;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 50px;
 }
 
 .navbar-links a {
-  color: #fff;
+  color: #e5e5e5;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  margin-left: 60px;
 }
 
 .navbar-links a:hover {
   color: #e50914;
 }
 
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-form input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  width: 200px;
+}
+
+.search-form button {
+  background-color: #e50914;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #f6121d;
+}
+
 .signin-button {
   background-color: #e50914;
   color: #fff;
-  padding: 8px 16px;
-  margin-left: 16px;
+  padding: 8px 18px;
+  margin-left: 20px;
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
@@ -46,4 +86,33 @@
 
 .signin-button:hover {
   background-color: #f6121d;
+}
+
+.search-results {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background-color: #141414;
+  border: 1px solid #333;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  border-radius: 4px;
+  z-index: 1001;
+}
+
+.search-item {
+  padding: 10px;
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item:hover {
+  background-color: #333;
+  cursor: pointer;
 }

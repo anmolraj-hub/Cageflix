@@ -5,14 +5,14 @@
   object-fit: contain;
   height: 448px;
   background-size: cover;
-  background-image: url('../assets/Bannerpic.png'); 
+  background-image: url('../assets/hero.jpg'); 
   background-position: center center;
   position: relative;
 }
 
 .banner-contents {
   margin-left: 30px;
-  padding-top: 140px;
+  padding-top: 240px;
   height: 190px;
 }
 
