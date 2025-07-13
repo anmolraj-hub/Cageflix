@@ -23,7 +23,7 @@ export default function SignIn({ onLogin }) {
       }
     } catch (error) {
       console.error(error);
-      alert('Sign In failed');
+      alert('Incorrect Username or Password');
     }
   };
 
