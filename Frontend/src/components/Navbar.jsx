@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from '../api/axios';
 import './NavBar.css';
 
-export default function NavBar() {
+export default function NavBar({user , onLogout}) {
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
 
@@ -35,8 +35,17 @@ export default function NavBar() {
         />
         <button type="submit">Search</button>
       </form>
-      <Link to="/signin" className="signin-button">Sign In</Link>
-      
+      {user ? (
+  <div className="navbar-user">
+    <span className="username">Welcome, {user}!</span>
+    <button className="logout-button" onClick={onLogout}>Logout</button>
+  </div>
+) : (
+  <Link to="/signin" className="signin-button">Sign In</Link>
+)}
+
+
+
       {results.length > 0 && (
         <div className="search-results">
           {results.map((movie) => (
