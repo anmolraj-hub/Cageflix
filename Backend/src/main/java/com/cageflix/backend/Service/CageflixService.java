@@ -22,6 +22,7 @@ public class CageflixService {
     private final TitlePrincipalRepository principalRepo;
     private final MovieRepository movieRepo;
     private final Moviemapper movieMapper;
+     private final TmdbService tmdbService;
 
     
 
@@ -98,7 +99,21 @@ public List<Moviedto> getAllCageContent(String genre) {
             }
             return matchesType && matchesGenre;
         })
-        .map(movieMapper::toDto)
+        
+        .map(movie -> {
+                //  If poster is missing, fetch from TMDb and store
+                if (movie.getPosterUrl() == null || movie.getPosterUrl().isEmpty()) {
+                   
+                    String fetchedPosterUrl = tmdbService.fetchPosterUrl(
+    movie.getPrimaryTitle(),
+    movie.getOriginalTitle()
+);
+                    movie.setPosterUrl(fetchedPosterUrl);
+                    movieRepo.save(movie); 
+                }
+
+                return movieMapper.toDto(movie);
+            })
         .toList();
 }
 

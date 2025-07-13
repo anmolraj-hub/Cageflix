@@ -16,6 +16,8 @@ public class Moviemapper {
         dto.setYear(movie.getStartYear());
         dto.setGenres(movie.getGenres());
         dto.setRuntime(movie.getRuntimeMinutes());
+        //
+        dto.setPosterUrl(movie.getPosterUrl());
         return dto;
     }
 }

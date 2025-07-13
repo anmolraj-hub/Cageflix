@@ -9,5 +9,5 @@ public class CageflixBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CageflixBackendApplication.class, args);
 	}
-
+	
 }

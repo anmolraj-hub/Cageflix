@@ -11,4 +11,5 @@ public class Moviedto {
     private String genres;
     private Integer runtime;
     
+    private String posterUrl;
 }

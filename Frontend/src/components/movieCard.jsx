@@ -1,29 +1,30 @@
-/*import React from "react";
 
-const MovieCard = ({ movie }) => {
-  return (
-    <div className="bg-gray-800 rounded-lg p-4 w-40">
-      <img src={movie.image} alt={movie.title} className="rounded" />
-      <h3 className="text-white mt-2">{movie.title}</h3>
-      <p className="text-gray-400">{movie.genre}</p>
-    </div>
-  );
-};
-
-export default MovieCard;
-*/
 import React from 'react';
 import './MovieCard.css';
+import movieImage from '../assets/hero.jpg';
 
 export default function MovieCard({ movie }) {
+    console.log('--- MovieCard Debugging ---');
+  console.log('Received movie prop:', movie);
+  console.log('Value of movie.posterUrl:', movie.posterUrl);
+  console.log('Type of movie.posterUrl:', typeof movie.posterUrl);
+  console.log('Is movie.posterUrl an empty string?', movie.posterUrl === '');
+  console.log('Is movie.posterUrl null or undefined?', movie.posterUrl == null); 
+  console.log('---------------------------');
   return (
+    
     <div className="movie-card">
-      <img
-        src={`https://source.unsplash.com/random/200x300?movie&sig=${movie.id}`}
+        
+     <img
+        
+        src={movie.posterUrl || movieImage}
         alt={movie.title}
       />
+      
+
       <p>{movie.title}</p>
     </div>
   );
 }
  
+
