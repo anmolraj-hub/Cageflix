@@ -19,11 +19,14 @@ MySQL Server
 
 ## Database Setup
 
-1. Run MySQL and create a database:
+1. Run Your Database Management Software of choice and create a database called "cageflix".
 
-2. CREATE DATABASE cageflix;
+2. for example using the SQL Query "CREATE DATABASE cageflix";
 
-3. Configure database credentials in backend/src/main/resources/application.properties:
+3. Import "cageflix_name_basics.sql","cag.sql" and ".sql" into the newly created database
+3. Import `cageflix_name_basics.sql`](https://github.com/anmolraj-hub/Cageflix/blob/main/cageflix_name_basics.sql) , `cageflix_name_basics.sql`](https://github.com/anmolraj-hub/Cageflix/blob/main/cageflix_name_basics.sql), `cageflix_name_basics.sql`](https://github.com/anmolraj-hub/Cageflix/blob/main/cageflix_name_basics.sql) into your newly created database.
+
+5. Configure database access credentials in backend/src/main/resources/application.properties:
    
 ## Backend Setup
 
