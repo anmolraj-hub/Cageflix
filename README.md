@@ -94,18 +94,25 @@ MySQL - It is a popular open-source relational database management system. Selec
 
 ## Screenshots 
 
-<img width="1470" height="956" alt="Screenshot 2025-07-14 at 5 14 58 PM" src="https://github.com/user-attachments/assets/b9673c21-514a-45c7-8557-12eec1e6d192" />
-<br>
 
+<br>
+**Homepage**
 <img width="1470" height="868" alt="Screenshot 2025-07-15 at 12 02 29 AM" src="https://github.com/user-attachments/assets/1c59ef0a-abbf-405a-ad56-621d1faa7a93" />
 <br>
 
+**Movies Page**
 <img width="1470" height="863" alt="Screenshot 2025-07-15 at 12 02 50 AM" src="https://github.com/user-attachments/assets/60d3c28f-bcd4-4c0a-8232-6298c9110655" />
 <br>
 
+**Log In**
 <img width="1470" height="869" alt="Screenshot 2025-07-15 at 12 03 17 AM" src="https://github.com/user-attachments/assets/232eea63-ca29-4673-a526-5461f775e4b2" />
 <br>
 
+**Shows Page**
+<img width="1470" height="836" alt="Screenshot 2025-07-15 at 12 49 05 AM" src="https://github.com/user-attachments/assets/027451a7-5804-4841-98ba-4eff77c7aaad" />
+
+
+**Fuzzy Search**
 <img width="1440" height="296" alt="Screenshot 2025-07-15 at 12 06 20 AM" src="https://github.com/user-attachments/assets/9cba5c22-738a-4640-9f6c-7c7e0aef6351" />
 
 
