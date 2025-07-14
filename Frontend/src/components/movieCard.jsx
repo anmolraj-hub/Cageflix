@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './MovieCard.css';
-import movieImage from '../assets/hero.jpg';
+import movieImage from '../assets/fallback.jpg';
 
 export default function MovieCard({ movie }) {
     console.log('--- MovieCard Debugging ---');

@@ -18,21 +18,32 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CageflixService {
 
+    // Repositories for accessing database tables
+
     private final PersonRepository personRepo;
     private final TitlePrincipalRepository principalRepo;
     private final MovieRepository movieRepo;
+
+    // Mapper to convert Movie entities to DTOs
     private final Moviemapper movieMapper;
+
+    // Service for fetching additional movie data like poster from TMDb
      private final TmdbService tmdbService;
 
     
-
+    // Get all Nicolas Cage movies filtered by genre. 
+    
     public List<Moviedto> getAllCageMovies(String genre) {
     return getAllCageMoviesByTypeAndGenre("movies", genre);
 }
 
+    //Get all Nicolas Cage shows filtered by genre.
+
 public List<Moviedto> getAllCageShows(String genre) {
     return getAllCageMoviesByTypeAndGenre("shows", genre);
 }
+
+// Get all Nicolas Cage movies and shows filtered by genre.
 
 public List<Moviedto> getAllCageContent(String genre) {
     return getAllCageMoviesByTypeAndGenre("all", genre);
@@ -76,6 +87,7 @@ public List<Moviedto> getAllCageContent(String genre) {
     }
 
     
+    // Finding Nicolas Cage by name
 
     private List<Moviedto> getAllCageMoviesByTypeAndGenre(String type, String genre) {
     Person cage = personRepo.findByPrimaryNameIgnoreCase("Nicolas Cage");

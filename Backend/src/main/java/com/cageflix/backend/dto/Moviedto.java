@@ -1,5 +1,7 @@
 package com.cageflix.backend.dto;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -12,4 +14,6 @@ public class Moviedto {
     private Integer runtime;
     
     private String posterUrl;
+
+    private List<String> actors;
 }

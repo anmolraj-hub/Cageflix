@@ -90,8 +90,8 @@
 
 .search-results {
   position: absolute;
-  top: 70px;
-  right: 40px;
+  top: 100%;
+  right: 0%;
   background-color: #141414;
   border: 1px solid #333;
   max-height: 300px;
@@ -100,7 +100,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.8);
   border-radius: 4px;
   z-index: 1001;
-  margin-right: 280px;
+  margin : 0;
 }
 
 .search-item {
@@ -150,4 +150,9 @@
 .user-info {
   display: flex;
   align-items: center;
+}
+
+.search-container {
+  position: relative;
+  margin-left: auto; 
 }

@@ -27,11 +27,18 @@ public class CageflixController {
 
     private final CageflixService cageflixService;
 
+    /**
+     * Get all Nicolas Cage movies filtered by genre.
+     */
 
     @GetMapping("/movies")
 public List<Moviedto> getAllCageMovies(@RequestParam(required = false) String genre) {
     return cageflixService.getAllCageMovies(genre);
 }
+
+    /**
+     * Get all Nicolas Cage shows filtered by genre.
+     */
 
 @GetMapping("/shows")
 public List<Moviedto> getAllCageShows(@RequestParam(required = false) String genre) {
@@ -43,7 +50,10 @@ public List<Moviedto> getAllCageContent(@RequestParam(required = false) String g
     return cageflixService.getAllCageContent(genre);
 }
 
-    
+
+    /**
+     * Get all Nicolas Cage content (movies + shows) filtered by genre.
+     */
 
     @GetMapping("/{id}")
     public Moviedto getMovieById(@PathVariable String id) {

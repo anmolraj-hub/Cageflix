@@ -7,12 +7,16 @@ export default function NavBar({user , onLogout}) {
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
 
+  // For getting the search result
+
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!keyword) return;
     try {
-      const res = await axios.get(`/search?keyword=${keyword}`);
-      setResults(res.data);
+      const movie_res = await axios.get(`/search?keyword=${keyword}`);
+      const genre_res = await axios.get(`/search?genre=${keyword}`);
+      const res = [...movie_res.data, ...genre_res.data];
+      setResults(res);
     } catch (err) {
       console.error(err);
     }
@@ -26,6 +30,8 @@ export default function NavBar({user , onLogout}) {
         <li><Link to="/movies">Movies</Link></li>
         <li><Link to="/shows">Shows</Link></li>
       </ul>
+        
+      <div className="search-container">
       <form className="search-form" onSubmit={handleSearch}>
         <input
           type="text"
@@ -35,6 +41,17 @@ export default function NavBar({user , onLogout}) {
         />
         <button type="submit">Search</button>
       </form>
+
+         {results.length > 0 && (
+        <div className="search-results">
+          {results.map((movie) => (
+            <div key={movie.id} className="search-item">
+              <strong>{movie.title}</strong> ({movie.year}) - {movie.genres}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
       {user ? (
   <div className="user-info">
     <span className="username">Welcome, {user}!</span>
@@ -46,15 +63,7 @@ export default function NavBar({user , onLogout}) {
 
 
 
-      {results.length > 0 && (
-        <div className="search-results">
-          {results.map((movie) => (
-            <div key={movie.id} className="search-item">
-              <strong>{movie.title}</strong> ({movie.year}) - {movie.genres}
-            </div>
-          ))}
-        </div>
-      )}
+   
     </nav>
   );
 }
