@@ -1,3 +1,7 @@
+/**
+    - Movies page component that displays multiple Rows for different genres.
+ */
+
 import React from 'react';
 import Row from '../components/Row';
 

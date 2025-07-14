@@ -1,3 +1,7 @@
+/**
+ * Home page component that displays a Banner and multiple Rows for different genres.
+ */
+
 import React from "react";
 import Banner from "../components/Banner";
 import Row from "../components/Row";

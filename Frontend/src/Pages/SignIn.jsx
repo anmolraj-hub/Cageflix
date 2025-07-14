@@ -3,11 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 import '../components/SignIn.css';
 
+/**
+ - SignIn component
+ - Handles user authentication form.
+ - Calls onLogin prop if credentials are valid and navigates to home.
+ */
+
 export default function SignIn({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Handles form submission for signing in
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -2,6 +2,10 @@ import React from "react";
 import "./Banner.css";
 import { Bookmark, Play } from 'lucide-react'
 
+/**
+ - Banner component with title, action buttons, and description.
+ */
+
 export default function Banner() {
   return (
     <header className="banner">

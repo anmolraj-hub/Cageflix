@@ -13,7 +13,11 @@ export default function NavBar({user , onLogout}) {
     e.preventDefault();
     if (!keyword) return;
     try {
+
+        // Fetch movies matching the keyword
       const movie_res = await axios.get(`/search?keyword=${keyword}`);
+
+      // Fetch movies matching the genre
       const genre_res = await axios.get(`/search?genre=${keyword}`);
       const res = [...movie_res.data, ...genre_res.data];
       setResults(res);

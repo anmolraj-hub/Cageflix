@@ -2,6 +2,12 @@ package com.cageflix.backend.model;
 
 import jakarta.persistence.*;
 
+/**
+ - Entity class representing a Movie record in the database.
+ - Maps to the 'title_basics2' table and contains details such as
+ - title, year, genres, runtime, and other metadata.
+ */
+
 @Entity
 @Table(name = "title_basics2")
 public class Movie {

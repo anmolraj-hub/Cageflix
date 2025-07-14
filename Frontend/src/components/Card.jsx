@@ -1,6 +1,7 @@
 import React from "react";
 import "./Card.css";
 
+// Card component to display movie/item details
 const Card = ({ item }) => {
   return (
     <div className="card">

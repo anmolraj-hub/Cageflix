@@ -4,6 +4,13 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+ - Data Transfer Object (DTO) for transferring movie details
+ - between different layers of the application.
+ - Contains basic information about a movie such as title,
+ - year, genres, runtime, poster URL, and a list of actors
+ */
+
 @Data
 public class Moviedto {
     private String id;

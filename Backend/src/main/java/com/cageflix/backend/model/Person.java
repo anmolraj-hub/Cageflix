@@ -5,6 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ - Entity class representing a person in the database.
+ - Maps to the 'name_basics' table and stores details about a person
+ - such as name, birth/death years, primary profession, and titles they are known for.
+ */
+
 @Entity
 @Table(name = "name_basics")
 public class Person {

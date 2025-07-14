@@ -8,7 +8,10 @@ import Footer from './components/Footer';
 import { useState } from 'react';
 import SignIn from './Pages/SignIn';
 
-
+/**
+ - Root App component
+ - Manages user authentication state and routes.
+ */
 
 export default function App() {
 const [user, setUser] = useState(null);

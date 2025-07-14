@@ -5,6 +5,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 
+/**
+ - Entity class representing the relationship between a movie (title) and a person
+ */
+
 @Entity
 @Table(name = "title_principals")
 @IdClass(TitlePrincipalId.class)

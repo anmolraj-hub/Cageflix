@@ -28,10 +28,10 @@ public class Moviemapper {
         dto.setYear(movie.getStartYear());
         dto.setGenres(movie.getGenres());
         dto.setRuntime(movie.getRuntimeMinutes());
-        //
+        // for getting posterurl to show in UI 
         dto.setPosterUrl(movie.getPosterUrl());
 
-        // Get actors:
+        // Get actors
         List<TitlePrincipal> principals = principalRepo.findByTconst(movie.getTConst());
         List<String> actorNames = principals.stream()
                 .map(tp -> personRepo.findById(tp.getNconst()).orElse(null))
