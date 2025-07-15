@@ -70,7 +70,8 @@ Cageflix/
 
 ## Additional Instruction
 
-When Clicked on Sign In button in the Nav Bar , use username as "user" and password as "pass".
+- When Clicked on Sign In button in the Nav Bar , use username as "**user**" and password as "**pass**".
+- I added Tmdb api key in the application.properties file which i am aware is not good practice but it is viable for the demo purpose.
 
 
 
